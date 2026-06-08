@@ -1,4 +1,5 @@
 import { FileSearch, Calendar, Code2, FlaskConical, GitPullRequest, Rocket } from "lucide-react";
+import { motion } from "framer-motion";
 
 const features = [
   {
@@ -36,33 +37,40 @@ const features = [
 export default function Features() {
   return (
     <section id="features" className="py-24 bg-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-white text-center mb-16">
-          Tự động hóa toàn bộ quy trình phát triển phần mềm
-        </h2>
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white text-center mb-16">
+            Tự động hóa toàn bộ quy trình phát triển phần mềm
+          </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature) => {
-            const Icon = feature.icon;
-            return (
-              <div
-                key={feature.title}
-                className="flex flex-col items-center text-center px-4 py-6"
-              >
-                <div className="w-14 h-14 rounded-full bg-surface flex items-center justify-center mb-4">
-                  <Icon className="w-7 h-7 text-accent" strokeWidth={1.5} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={feature.title}
+                  className="flex flex-col items-center text-center px-4 py-6"
+                >
+                  <div className="w-14 h-14 rounded-full bg-surface flex items-center justify-center mb-4">
+                    <Icon className="w-7 h-7 text-accent" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-white mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="font-heading text-lg font-semibold text-white mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-muted text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
