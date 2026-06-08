@@ -1,10 +1,15 @@
+import { motion } from "framer-motion";
+
 export default function CTA() {
   return (
-    <section
-      id="cta"
-      className="py-24 bg-bg"
-    >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section id="cta" className="py-24 bg-bg">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+      >
         <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-6">
           Sẵn sàng biến ý tưởng thành sản phẩm?
         </h2>
@@ -20,7 +25,7 @@ export default function CTA() {
         >
           Chat qua Telegram
         </a>
-      </div>
+      </motion.div>
     </section>
   );
 }
