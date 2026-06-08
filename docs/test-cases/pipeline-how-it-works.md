@@ -1,38 +1,71 @@
-# Test Cases — Pipeline / How It Works
+# Test Cases: Pipeline / How It Works
 
-## Happy Path Scenarios
+## Section: Layout & Visibility
 
-**Scenario**: Section has id `#pipeline` and displays the Vietnamese title
-**Given**: The landing page is loaded
-**When**: The user scrolls to the Pipeline / How It Works section
-**Then**: The section has `id="pipeline"` and the title reads "Từ ý tưởng đến deploy hoàn toàn tự động" in white, centered
+**Scenario**: Pipeline section renders with correct id and title
+**Given**: The page is loaded
+**When**: The user scrolls to the Pipeline section
+**Then**: The section has id `#pipeline` and displays the heading "Từ ý tưởng đến deploy hoàn toàn tự động"
 
-**Scenario**: 5 steps are displayed sequentially from idea to deploy
-**Given**: The Pipeline section is visible
-**When**: The user views the step cards
-**Then**: Exactly 5 steps are shown in order: (1) Ý tưởng, (2) PM lên kế hoạch, (3) Dev code, (4) Test kiểm tra, (5) Deploy
+## Section: 5 Steps — Desktop Layout
 
-**Scenario**: Each step displays an icon, a title, and a short description
-**Given**: The Pipeline section is visible
-**When**: The user looks at any single step card
-**Then**: The card contains an icon (emoji or SVG), a title of at most 4 words, and a short description of at most 15 words
+**Scenario**: Five steps are displayed in a horizontal row on desktop
+**Given**: The viewport is at least 1024px wide
+**When**: The Pipeline section is visible
+**Then**: The five steps are arranged in a horizontal row with connecting lines or arrows between them
 
-**Scenario**: Steps are arranged in a horizontal row with connecting arrows on desktop
-**Given**: The Pipeline section is visible on a desktop viewport (≥1024px)
-**When**: The user views the step layout
-**Then**: The 5 steps are arranged in a horizontal row with visual connectors (lines or arrows) between adjacent steps
+## Section: 5 Steps — Mobile Layout
 
-**Scenario**: Steps are arranged in a vertical stack with connecting lines on mobile
-**Given**: The Pipeline section is visible on a mobile viewport (≤640px)
-**When**: The user views the step layout
-**Then**: The 5 steps are stacked vertically, one per row, with connecting lines between adjacent steps
+**Scenario**: Five steps stack vertically on mobile
+**Given**: The viewport is 640px wide or smaller
+**When**: The Pipeline section is visible
+**Then**: The five steps are stacked vertically with connecting lines between them
 
-**Scenario**: Step cards use surface-colored background
-**Given**: The Pipeline section is visible
+## Section: Step 1 — Ý tưởng
+
+**Scenario**: Step 1 displays icon, title, and description
+**Given**: The Pipeline section is rendered
+**When**: The user views step 1
+**Then**: It shows an icon, the title "Ý tưởng", and a short description (≤15 words)
+
+## Section: Step 2 — PM lên kế hoạch
+
+**Scenario**: Step 2 displays icon, title, and description
+**Given**: The Pipeline section is rendered
+**When**: The user views step 2
+**Then**: It shows an icon, the title "PM lên kế hoạch", and a short description (≤15 words)
+
+## Section: Step 3 — Dev code
+
+**Scenario**: Step 3 displays icon, title, and description
+**Given**: The Pipeline section is rendered
+**When**: The user views step 3
+**Then**: It shows an icon, the title "Dev code", and a short description (≤15 words)
+
+## Section: Step 4 — Test kiểm tra
+
+**Scenario**: Step 4 displays icon, title, and description
+**Given**: The Pipeline section is rendered
+**When**: The user views step 4
+**Then**: It shows an icon, the title "Test kiểm tra", and a short description (≤15 words)
+
+## Section: Step 5 — Deploy
+
+**Scenario**: Step 5 displays icon, title, and description
+**Given**: The Pipeline section is rendered
+**When**: The user views step 5
+**Then**: It shows an icon, the title "Deploy", and a short description (≤15 words)
+
+## Section: Card Styling
+
+**Scenario**: Each step card uses surface color background
+**Given**: The Pipeline section is rendered
 **When**: The user inspects any step card
-**Then**: The card background uses the surface color (`#1E1E2A`)
+**Then**: The card has a surface-colored background (`#1E1E2A`)
 
-**Scenario**: All step content is in Vietnamese
-**Given**: The Pipeline section is visible
-**When**: The user reads all text content across the 5 steps
-**Then**: The title, step titles, and descriptions are written entirely in Vietnamese
+## Section: Visual Connection
+
+**Scenario**: Steps are connected visually
+**Given**: The Pipeline section is rendered
+**When**: The user inspects the layout
+**Then**: Each step is connected to the next via a visual element (arrow or line) appropriate to the breakpoint
