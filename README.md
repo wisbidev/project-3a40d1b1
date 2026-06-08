@@ -1,2 +1,28 @@
-# project-3a40d1b1
-Landing page giới thiệu aiteam — nền tảng AI tự động build phần mềm thông qua Telegram.Ngôn ngữ: Tiếng ViệtMục tiêu:- Giới thiệu quy trình AI engineering tự động- Nhấn mạnh không cần thuê team dev truyền thống- CTA dẫn user bắt đầu ngay qua TelegramDesign:- Dark mode- Accent xanh lam (#3B82F6)- Phong cách tối giản, hiện đại- UI dạng SaaS landing pa
+# aiteam Landing Page
+
+AI-powered platform landing page — dark-mode, mobile-first, built with Next.js and Tailwind CSS.
+
+## Quick Start
+
+```bash
+# Frontend development
+cd frontend
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000)
+
+## Docker
+
+```bash
+docker compose up --build
+```
+
+## Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v3
+- **Fonts:** Inter + Plus Jakarta Sans via `next/font`
+- **Animations:** Framer Motion (P3)
