@@ -24,7 +24,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="vi" className={`${inter.variable} ${plusJakarta.variable}`}>
+    <html lang="vi" className={`${inter.variable} ${plusJakarta.variable} scroll-smooth`}>
       <body className="font-sans antialiased bg-[#0A0A0F] text-white">
         {children}
       </body>
