@@ -1,4 +1,5 @@
 import { ClipboardList, Layers, Code2, FlaskConical } from "lucide-react";
+import { motion } from "framer-motion";
 
 const agents = [
   {
@@ -46,43 +47,50 @@ const agents = [
 export default function AIAgents() {
   return (
     <section id="agents" className="py-24 bg-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-white text-center mb-16">
-          4 AI Agents vận hành như engineering team thật
-        </h2>
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white text-center mb-16">
+            4 AI Agents vận hành như engineering team thật
+          </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {agents.map((agent) => {
-            const Icon = agent.icon;
-            return (
-              <div
-                key={agent.title}
-                className="bg-surface border border-gray-700/50 rounded-2xl p-6 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] transition-shadow duration-300"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
-                    <Icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {agents.map((agent) => {
+              const Icon = agent.icon;
+              return (
+                <div
+                  key={agent.title}
+                  className="bg-surface border border-gray-700/50 rounded-2xl p-6 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] transition-shadow duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-heading text-xl font-semibold text-white">
+                      {agent.title}
+                    </h3>
                   </div>
-                  <h3 className="font-heading text-xl font-semibold text-white">
-                    {agent.title}
-                  </h3>
+                  <ul className="space-y-2">
+                    {agent.responsibilities.map((item) => (
+                      <li
+                        key={item}
+                        className="text-muted text-sm flex items-start gap-2"
+                      >
+                        <span className="text-accent mt-1">•</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-2">
-                  {agent.responsibilities.map((item) => (
-                    <li
-                      key={item}
-                      className="text-muted text-sm flex items-start gap-2"
-                    >
-                      <span className="text-accent mt-1">•</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
